@@ -1,0 +1,25 @@
+{
+  "name": "open-library-node",
+  "version": "0.0.1",
+  "description": "A typed wrapper for the [Open Library API](https://openlibrary.org/developers/api) from The Internet Archive.",
+  "exports": "src/index.ts",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Candid-Engineering/open-library-node.git"
+  },
+  "keywords": [
+    "openlibrary",
+    "book",
+    "edition",
+    "isbn",
+    "api",
+    "sdk",
+    "open library",
+    "internet archive",
+  ],
+  "author": "Roman Kofman",
+  "license": "AGPL-3.0-or-later"
+}
