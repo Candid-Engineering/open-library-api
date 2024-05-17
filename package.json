@@ -1,14 +1,17 @@
 {
-  "name": "open-library-node",
+  "name": "open-library-api",
   "version": "0.0.1",
   "description": "A typed wrapper for the [Open Library API](https://openlibrary.org/developers/api) from The Internet Archive.",
-  "exports": "src/index.ts",
+  "exports": "./dist/index.ts",
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "test": "vitest"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Candid-Engineering/open-library-node.git"
+    "url": "git@github.com:Candid-Engineering/open-library-api.git"
   },
   "keywords": [
     "openlibrary",
@@ -18,8 +21,14 @@
     "api",
     "sdk",
     "open library",
-    "internet archive",
+    "internet archive"
   ],
   "author": "Roman Kofman",
-  "license": "AGPL-3.0-or-later"
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "eslint": "^9.2.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
 }

@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "module": "es2022",
+      "target": "es2022",
+      "declaration": true,
+      "useDefineForClassFields": true,
+      "verbatimModuleSyntax": true,
+      "outDir": "./dist",
+      "sourceMap": false,
+      // <strictness>
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "exactOptionalPropertyTypes": true,
+      "noFallthroughCasesInSwitch": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noImplicitOverride": false
+      // </strictness>
+    },
+    "include": [
+      "src/**/*"
+    ]
+  }
+  
