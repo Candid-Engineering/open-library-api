@@ -1,34 +1,46 @@
 {
   "name": "open-library-api",
-  "version": "0.0.1",
-  "description": "A typed wrapper for the [Open Library API](https://openlibrary.org/developers/api) from The Internet Archive.",
-  "exports": "./dist/index.ts",
+  "version": "0.1.0",
+  "description": "Open API specs, docs, and generated typescript client for the Internet Archive's Open Library API.",
+  "exports": "./ts/index.ts",
   "files": [
-    "./dist"
+    "./ts"
   ],
   "scripts": {
-    "test": "vitest"
+    "start": "npx serve",
+    "test": "npx openapi lint oas/open-library.yaml",
+    "schema": "npm run lint && npx openapi-typescript oas/open-library.yaml -o ts/schema.d.ts",
+    "build": "npm run schema",
+    "format": "npx prettier --write .",
+    "lint": "npm run test"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:Candid-Engineering/open-library-api.git"
   },
-  "keywords": [
-    "openlibrary",
-    "book",
-    "edition",
-    "isbn",
-    "api",
-    "sdk",
-    "open library",
-    "internet archive"
-  ],
   "author": "Roman Kofman",
   "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "api",
+    "book",
+    "edition",
+    "internet archive",
+    "isbn",
+    "open library",
+    "openlibrary",
+    "openlibrary.org",
+    "sdk",
+    "swagger"
+  ],
+  "dependencies": {
+    "openapi-fetch": "^0.9.7"
+  },
   "devDependencies": {
+    "@redocly/cli": "^1.12.2",
     "eslint": "^9.2.0",
+    "openapi-typescript": "^7.0.0-rc.0",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "serve": "^14.2.3",
+    "typescript": "^5.4.5"
   }
 }

@@ -1,0 +1,78 @@
+type: object
+required:
+  - key
+  - name
+  - type
+  - revision
+  - last_modified
+additionalProperties: false
+properties:
+  key:
+    $ref: 'shared.yaml#/AuthorKey'
+  name:
+    type: string
+  type:
+    type: object
+    additionalProperties: false
+    properties:
+      key:
+        type: string
+        enum:
+          - /type/author
+  alternate_names:
+    type: array
+    items:
+      type: string
+  bio:
+    $ref: 'shared.yaml#/TextBlock'
+  birth_date:
+    type: string
+  death_date:
+    type: string
+  location:
+    type: string
+    example: England, U.K.
+  date:
+    type: string
+  entity_type:
+    type: string
+    enum:
+      - person
+      - org
+      - event
+  fuller_name:
+    type: string
+  personal_name:
+    type: string
+  title:
+    type: string
+  photos:
+    type: array
+    items:
+      type: number
+  links:
+    type: array
+    items:
+      $ref: 'shared.yaml#/Link'
+  remote_ids:
+    type: object
+    additionalProperties: true
+    properties:
+      wikidata:
+        type: string
+        pattern: ^Q[0-9]+$
+      viaf:
+        type: string
+        pattern: ^[0-9]+$
+  wikipedia:
+    type: string
+    description: 'DEPRECATED: Not many authors have this property. Should be moved to Links and/or remote_ids: wikidata.'
+  revision:
+    type: number
+  latest_revision:
+    type: number
+  created:
+    $ref: 'shared.yaml#/DateTimeObject'
+  last_modified:
+    $ref: 'shared.yaml#/DateTimeObject'
+  # TODO: add `example` field with real responses from Open Library.

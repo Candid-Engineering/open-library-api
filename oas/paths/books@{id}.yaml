@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Edition / Book
+  summary: Get Edition (Book) by ID
+  description: |
+    Gets edition information.
+  operationId: getEdition
+  security: []
+  parameters:
+    - name: id
+      in: path
+      description: The Edition's Open Library identifier
+      required: true
+      schema:
+        type: string
+      example: OL7502572M
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Edition.yaml
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            properties:
+              error:
+                type: string
+              key:
+                '$ref': '../components/schemas/shared.yaml#/EditionKey'
+            example:
+              error: notfound
+              key: /book/OL12345M

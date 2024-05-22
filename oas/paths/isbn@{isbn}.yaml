@@ -1,0 +1,42 @@
+get:
+  tags:
+    - Edition / Book
+  summary: Get Edition (Book) by ISBN
+  description: |
+    Gets Edition information.
+  operationId: getEditionByISBN
+  security: []
+  parameters:
+    - name: isbn
+      in: path
+      description: ISBN (either IBSN13 or ISBN10)
+      required: true
+      schema:
+        type: string
+      examples:
+        ISBN13:
+          value: '9780425095317'
+        ISBN10:
+          value: '0425095312'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Edition.yaml
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            properties:
+              error:
+                type: string
+              key:
+                '$ref': '../components/schemas/shared.yaml#/EditionKey'
+            example:
+              error: notfound
+              key: /isbn/1234567890

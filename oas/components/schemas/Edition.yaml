@@ -1,0 +1,230 @@
+type: object
+required:
+  - key
+  - title
+  - type
+  - works
+  - revision
+  - last_modified
+additionalProperties: false
+properties:
+  key:
+    $ref: shared.yaml#/EditionKey
+  title:
+    type: string
+  subtitle:
+    type: string
+  type:
+    type: object
+    additionalProperties: false
+    properties:
+      key:
+        type: string
+        enum:
+          - /type/edition
+  authors:
+    type: array
+    items:
+      $ref: shared.yaml#/AuthorKeyObject
+  works:
+    type: array
+    minItems: 1
+    maxItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required:
+        - key
+      properties:
+        key:
+          $ref: shared.yaml#/WorkKey
+  identifiers:
+    type: object
+    additionalProperties: true
+  isbn_10:
+    type: array
+    items:
+      $ref: shared.yaml#/ISBN10
+  isbn_13:
+    type: array
+    items:
+      $ref: shared.yaml#/ISBN13
+  lccn:
+    title: Library of Congress Control Numbers
+    description: Library of Congress Control Numbers, linkable via https://lccn.loc.gov/<lccn>
+    type: array
+    items:
+      type: string
+      pattern: ^[a-z]{,3}[0-9]+$
+  ocaid:
+    title: Internet Archive OCAID
+    description: Links to the Internet Archive record via https://archive.org/details/<ocaid>
+    type: string
+    pattern: '^[^ ]{,50}$'
+  oclc_numbers:
+    description: OCLC Online Computer Library Center / WorldCat id, linkable via https://www.worldcat.org/oclc/<oclc_number>
+    type: array
+    items:
+      type: string
+      pattern: '^[0-9]+$'
+  local_id:
+    type: array
+    items:
+      type: string
+  covers:
+    type: array
+    items:
+      type: number
+  links:
+    type: array
+    items:
+      '$ref': shared.yaml#/Link
+  languages:
+    type: array
+    items:
+      '$ref': shared.yaml#/LanguageObject
+  translated_from:
+    type: array
+    description: Translated from original language(s)
+    items:
+      '$ref': shared.yaml#/LanguageObject
+  translation_of:
+    type: string
+    description: The title of the original language work
+    example: Ai margini del caos
+  by_statement:
+    type: string
+  weight:
+    type: string
+    example: 300 grams
+    # - 0.3 kilos
+    # - 12 ounces
+    # - 1 pounds
+  edition_name:
+    type: string
+    example: 1st ed.
+    # - 2000 edition
+  number_of_pages:
+    type: number
+  pagination:
+    type: string
+  physical_dimensions:
+    type: string
+    example: 5.4 x 4.7 x 0.2 inches
+    # - 21 x 14.8 x 0.8 centimeters
+  physical_format:
+    type: string
+    example: Paperback
+    # - Hardcover
+    # - Spiral-bound
+  copyright_date:
+    type: string
+    example: '1992'
+  publish_country:
+    '$ref': shared.yaml#/PublishCountry
+  publish_date:
+    type: string
+    description: The publication date in Extended Date/Time Format (EDTF) -- https://www.loc.gov/standards/datetime/
+    example: 2017-07
+    # - 2017
+    # - 2017-07
+    # - '2017-07-11'
+  publish_places:
+    type: array
+    items:
+      type: string
+  publishers:
+    type: array
+    items:
+      type: string
+  contributions:
+    type: array
+    items:
+      type: string
+  dewey_decimal_class:
+    type: array
+    items:
+      type: string
+  genres:
+    type: array
+    items:
+      type: string
+  lc_classifications:
+    type: array
+    items:
+      '$ref': shared.yaml#/LcClassification
+  other_titles:
+    type: array
+    items:
+      type: string
+  series:
+    type: array
+    items:
+      type: string
+  source_records:
+    type: array
+    items:
+      type: string
+  subjects:
+    type: array
+    items:
+      type: string
+  work_titles:
+    type: array
+    items:
+      type: string
+  table_of_contents:
+    type: array
+  description:
+    '$ref': shared.yaml#/TextBlock
+  first_sentence:
+    '$ref': shared.yaml#/TextBlock
+  notes:
+    '$ref': shared.yaml#/TextBlock
+  revision:
+    type: number
+  latest_revision:
+    type: number
+  created:
+    '$ref': shared.yaml#/DateTimeObject
+  last_modified:
+    '$ref': shared.yaml#/DateTimeObject
+example:
+  identifiers:
+    goodreads:
+      - '839029'
+    librarything:
+      - '52023'
+  title: Adventures of Stainless Steel Rat
+  authors:
+    - key: '/authors/OL27278A'
+  publish_date: April 15, 1986
+  publishers:
+    - Berkley
+  isbn_13:
+    - '9780425095317'
+  isbn_10:
+    - '0425095312'
+  type:
+    key: '/type/edition'
+  local_id:
+    - urn:bwbsku:O7-BHW-096
+  source_records:
+    - promise:bwb_daily_pallets_2020-12-04
+    - bwb:9780425095317
+    - ia:isbn_0425095312
+  ocaid: isbn_0425095312
+  key: '/books/OL7502572M'
+  works:
+    - key: '/works/OL467275W'
+  covers:
+    - 14480781
+  number_of_pages: 418
+  latest_revision: 11
+  revision: 11
+  created:
+    type: '/type/datetime'
+    value: '2008-04-29T13:35:46.876380'
+  last_modified:
+    type: '/type/datetime'
+    value: '2023-10-21T17:50:30.639115'

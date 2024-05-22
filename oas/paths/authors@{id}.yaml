@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Author
+  summary: Get author by ID
+  description: |
+    Gets author information.
+  operationId: getAuthor
+  security: []
+  parameters:
+    - name: id
+      in: path
+      description: The author's Open Library identifier
+      required: true
+      schema:
+        type: string
+      example: OL27278A
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Author.yaml
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            properties:
+              error:
+                type: string
+              key:
+                '$ref': '../components/schemas/shared.yaml#/AuthorKey'
+            example:
+              error: notfound
+              key: /author/OL12345A

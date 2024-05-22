@@ -1,0 +1,46 @@
+openapi: 3.0.2
+info:
+  version: 0.0.1
+  title: openlibrary.com
+  termsOfService: 'https://archive.org/about/terms.php'
+  license:
+    name: 'AGPL-3.0-or-later'
+    url: 'https://www.gnu.org/licenses/agpl-3.0.en.html'
+  # x-logo:
+  #   url: 'https://redocly.github.io/openapi-template/logo.png'
+  description: >
+    # Introduction
+
+    This specification covers the available endpoints of the [Open Library API](https://openlibrary.org/developers/api).
+
+externalDocs:
+  description: Find out how to create a GitHub repo for your OpenAPI definition.
+  url: 'https://github.com/Rebilly/generator-openapi-repo'
+tags:
+  - name: Edition / Book
+    description: A specific publication, including a publisher, ISBN, book-jacket, and other specific information.
+  - name: Work
+    description: >
+      A Work is a logical collection of similar `Editions`. "Fantastic
+      Mr. Fox" could be a Work which contains a Spanish translation edition, or
+      perhaps a 2nd edition which has an additional chapter or corrections. Work
+      metadata will include general umbrella information about a book, whereas an
+      Edition will have a publisher, an ISBN, a book-jacket, and other specific
+      information.
+  - name: Author
+    description: Entities that write books.
+  - name: Import
+    description: ?????
+servers:
+  - url: 'https://openlibrary.org'
+paths:
+  '/authors/{id}.json':
+    $ref: 'paths/authors@{id}.yaml'
+  '/books/{id}.json':
+    $ref: 'paths/books@{id}.yaml'
+  '/works/{id}.json':
+    $ref: 'paths/works@{id}.yaml'
+  '/isbn/{isbn}.json':
+    $ref: 'paths/isbn@{isbn}.yaml'
+  # '/imports/{id}.json':
+  #   $ref: 'paths/imports@{id}.yaml'

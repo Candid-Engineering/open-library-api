@@ -1,0 +1,81 @@
+title: Open Library Work Schema
+type: object
+required:
+  - key
+  - title
+  - type
+  - revision
+  - last_modified
+additionalProperties: true
+properties:
+  key:
+    '$ref': shared.yaml#/WorkKey
+  title:
+    type: string
+  subtitle:
+    type: string
+  type:
+    type: object
+    additionalProperties: false
+    properties:
+      key:
+        type: string
+        enum:
+          - '/type/work'
+  authors:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required:
+        - type
+        - author
+      properties:
+        type:
+          type: object
+          additionalProperties: false
+          required:
+            - key
+          properties:
+            key:
+              enum:
+                - '/type/author_role'
+        author:
+          '$ref': shared.yaml#/AuthorKeyObject
+        role:
+          type: string
+        as:
+          type: string
+  covers:
+    type: array
+    items:
+      type: number
+  links:
+    type: array
+    items:
+      '$ref': shared.yaml#/Link
+  id:
+    description: Unsure what this is for, deprecate?
+    type: number
+  lc_classifications:
+    type: array
+    items:
+      type: string
+  subjects:
+    type: array
+    items:
+      type: string
+  first_publish_date:
+    type: string
+  description:
+    '$ref': shared.yaml#/TextBlock
+  notes:
+    '$ref': shared.yaml#/TextBlock
+  revision:
+    type: number
+  latest_revision:
+    type: number
+  created:
+    '$ref': shared.yaml#/DateTimeObject
+  last_modified:
+    '$ref': shared.yaml#/DateTimeObject

@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Work
+  summary: Get Work by ID
+  description: |
+    Gets work information.
+  operationId: getWork
+  security: []
+  parameters:
+    - name: id
+      in: path
+      description: The work's Open Library identifier
+      required: true
+      schema:
+        type: string
+      example: OL467275W
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Work.yaml
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            properties:
+              error:
+                type: string
+              key:
+                '$ref': '../components/schemas/shared.yaml#/WorkKey'
+            example:
+              error: notfound
+              key: /author/OL12345W

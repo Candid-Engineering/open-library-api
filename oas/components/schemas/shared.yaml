@@ -1,0 +1,106 @@
+ISBN10:
+  description: Book Identifier
+  type: string
+  pattern: ^([0-9][- ]*){9}[0-9X]$
+ISBN13:
+  description: Book Identifier
+  type: string
+  pattern: ^([0-9][- ]*){13}$
+EditionKey:
+  type: string
+  pattern: ^/books/OL[0-9]+M$
+WorkKey:
+  type: string
+  pattern: ^/works/OL[0-9]+W$
+AuthorKey:
+  type: string
+  pattern: ^/authors/OL[0-9]+A$
+  example: /authors/OL27278A
+AuthorKeyObject:
+  type: object
+  additionalProperties: false
+  required:
+    - key
+  properties:
+    key:
+      $ref: '#/AuthorKey'
+DateTimeObject:
+  type: object
+  required:
+    - type
+    - value
+  additionalProperties: false
+  properties:
+    type:
+      type: string
+      enum:
+        - /type/datetime
+    value:
+      type: string
+LanguageCode:
+  type: string
+  pattern: ^[a-z]{3}$
+  description: The MARC21 language code. See https://www.loc.gov/marc/languages/language_code.html
+  examples:
+    - eng
+    - fre
+    - ger
+    - tha
+LanguageObject:
+  type: object
+  required:
+    - key
+  additionalProperties: false
+  description: A type based on the list of MARC21 language codes. See https://www.loc.gov/marc/languages/
+  properties:
+    key:
+      type: string
+      pattern: ^/languages/[a-z]{3}$
+      example: /languages/ger
+Link:
+  type: object
+  required:
+    - url
+    - title
+  additionalProperties: false
+  properties:
+    url:
+      type: string
+    title:
+      type: string
+    type:
+      type: object
+      additionalProperties: false
+      required:
+        - key
+      properties:
+        key:
+          enum:
+            - /type/link
+TextBlock:
+  type: object
+  required:
+    - type
+    - value
+  additionalProperties: false
+  properties:
+    type:
+      type: string
+      enum:
+        - /type/text
+    value:
+      type: string
+PublishCountry:
+  type: string
+  pattern: '^[a-z]{2,3}$'
+  description: The MARC21 country code. See https://www.loc.gov/marc/countries/cou_home.html
+  example: enk
+  # - gw
+  # - flu
+LcClassification:
+  type: string
+  description:
+    The Library of Congress Classification number. See https://www.loc.gov/catdir/cpso/lcc.html
+    We include the imprint date as the last four digits.
+  example: BS571.5 .S68 1995
+  # - Z673.D62 C65 1994
