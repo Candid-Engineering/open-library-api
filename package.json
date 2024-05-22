@@ -1,6 +1,6 @@
 {
   "name": "open-library-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open API specs, docs, and generated typescript client for the Internet Archive's Open Library API.",
   "exports": "./ts/index.ts",
   "files": [
