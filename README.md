@@ -1,5 +1,7 @@
 # open-library-api
 
+NOTE: *this is not an official Open Library package*. openlibrary.org does not currently provide an official package.
+
 `open-library-api` is a node module that includes Open API Spec definitions for the [openlibrary.org API](https://openlibrary.org/developers/api). It is based on the [reference python library](https://github.com/internetarchive/openlibrary-client) provided by the Internet Archive.
 
 The current implementation exposes just the basic `GET` APIs for `/author/{id}`, `/book/{id}` (aka `/edition/{id}`), and `/work/{/id}`. It also covers Edition lookup by ISBN: `/isbn/{isbn}`.
