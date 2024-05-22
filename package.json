@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Candid-Engineering/open-library-api.git"
+    "url": "git+ssh://git@github.com/Candid-Engineering/open-library-api.git"
   },
   "author": "Roman Kofman",
   "license": "AGPL-3.0-or-later",
