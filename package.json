@@ -2,7 +2,7 @@
   "name": "open-library-api",
   "version": "0.1.1",
   "description": "Open API specs, docs, and generated typescript client for the Internet Archive's Open Library API.",
-  "exports": "./ts/index.ts",
+  "exports": "./ts/schema.d.ts",
   "files": [
     "./ts"
   ],
@@ -26,15 +26,14 @@
     "edition",
     "internet archive",
     "isbn",
+    "open api spec",
+    "oas",
     "open library",
     "openlibrary",
     "openlibrary.org",
     "sdk",
     "swagger"
   ],
-  "dependencies": {
-    "openapi-fetch": "^0.9.7"
-  },
   "devDependencies": {
     "@redocly/cli": "^1.12.2",
     "eslint": "^9.2.0",
