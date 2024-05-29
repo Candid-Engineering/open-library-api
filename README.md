@@ -9,10 +9,16 @@ NOTE: *this is not an official Open Library package*. openlibrary.org does not c
 
 ## Getting Started - browsing the documentation
 
-This repository comes with an Open API Spec viewer powered by [RapiDoc](https://rapidocweb.com/). To browse the Open API documentation, clone this library:
+This repository comes with an Open API Spec viewer powered by [RapiDoc](https://rapidocweb.com/).
+
+It is publicly available here: https://candid-engineering.github.io/open-library-api/
+
+Alternatively, you can browse the same file locally. Clone this library:
+
 ```
   git clone git@github.com:Candid-Engineering/open-library-api.git
 ```
+
 Then run `npm start` and open `http://localhost:3000` in your favorite browser.
 
 ## Getting Started - node typescript client
